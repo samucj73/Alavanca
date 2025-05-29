@@ -1,6 +1,7 @@
 
 def alavancagem_banca(banca_inicial, odd=2.0):
-    aposta_atual = banca_inicial * 0.10
+    porcentagem_aposta = banca_inicial * 0.10
+    aposta_atual = porcentagem_aposta
     resultados = []
     lucro_total = 0
 
@@ -14,7 +15,7 @@ def alavancagem_banca(banca_inicial, odd=2.0):
             'lucro acumulado': lucro_total
         })
 
-        # Próxima aposta: valor anterior + 3% da banca original
-        aposta_atual += banca_inicial * 0.03
+        # Próxima aposta: 10% da banca inicial + lucro acumulado
+        aposta_atual = porcentagem_aposta + lucro_total
 
     return resultados
